@@ -29,3 +29,21 @@ server.get('/viewProduct/:id',(req,res)=>{
         res.status(result.statusCode).json(result)
     })
 })
+
+server.post('/add-to-wishlist',(req,res)=>{
+    dataService.addToWishList(req.body).then((result)=>{
+        res.status(result.statusCode).json(result)
+    })
+})
+
+server.get('/get-wishlist',(req,res)=>{
+    dataService.getWishlist().then((result)=>{
+        res.status(result.statusCode).json(result)
+    })
+})
+
+server.delete('/deletewishlistitem/:id',(req,res)=>{
+    dataService.deleteWishlistItem(req.params.id).then((result)=>{
+        res.status(result.statusCode).json(result)
+    })
+})
